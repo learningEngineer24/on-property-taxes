@@ -1,0 +1,148 @@
+# On Property Taxes — DRAFT (Oct 3, 2026)
+
+*Status: draft. Pending: tax-roll trajectory visual, Redfin/ZHVI 2022-peak
+confirmation, final charts. All numbers below are from Alameda County's own
+open data unless noted.*
+
+---
+
+## 1. Where this started
+
+In August 2026 I filed a property tax appeal on my home at 7001 Exeter Dr,
+Oakland (appeal no. 2026-100748-1). The county assessed it at $1,664,640 for
+2026–27; I argued it's worth $1,480,000 — $185,000 less, about 11% below the
+assessment. The assessor's informal review denied me in September.
+
+I didn't set out to write about tax policy. I set out to check whether my
+number was right. But the deeper I got into the county's own data — every
+parcel, every sale, every tax rate area — the more I realized my appeal was
+one instance of something much bigger. This is what I found.
+
+## 2. The claim
+
+California's Proposition 13 was written to protect homeowners from runaway
+property taxes. Nearly fifty years later, it does something its authors never
+intended: it runs a two-sided distortion. Longtime owners are taxed on a
+sliver of their homes' value, while buyers from the 2021–2023 peak are taxed
+on value that no longer exists. Two identical houses on the same street can
+carry tax bills that differ by a factor of four — determined entirely by *when*
+each owner bought.
+
+## 3. The analysis
+
+**The data.** Alameda County publishes an extraordinary amount of open data:
+489,628 parcels (assessed values, last recorded document, property type, tax
+rate area), the ad-valorem tax rate for each of 1,416 tax rate areas, and —
+crucially — an ownership transfer list with 23,633 priced sales from 2023 to
+2025, with sale prices backed out from the documentary transfer tax. Under
+Prop 13, a sale forces reassessment at the sale price, so the county's data
+contains its own market anchors. No outside data was needed for the core
+findings.
+
+**The tenure gradient.** Among Oakland single-family homes, the median assessed
+value for homes held 31+ years is $158,000. For homes bought in the last two
+years: $661,000. Same city, same property type — a 4.2x gap, produced entirely
+by the 2%-per-year cap compounding over decades.
+
+**Effective tax rates.** Convert to what people actually pay as a share of
+market value (assessed value × local tax rate ÷ market value, with market
+value from the county's own 2024–25 sale prices by ZIP):
+
+| Bought | Median effective rate |
+|---|---|
+| Before 1990 | 0.20% |
+| 1990s | 0.33% |
+| 2000s | 0.49% |
+| 2010s | 0.62% |
+| 2022 | 0.93% |
+
+A pre-1990 buyer pays less than a quarter the effective rate of a 2022 buyer
+on an equivalent home — a 4.6x multiple. (The statutory rate is about 1.17%;
+even recent buyers land below it here because the comparison uses
+neighborhood medians — the cohort medians are the robust unit.)
+
+**Peak buyers are over-assessed.** Take 5,113 homes bought in 2023 — true
+purchase prices from the transfer records — and compare each home's assessed
+value today against its Prop 13 trajectory (price × 1.02³). The median home
+sits at 98% of its trajectory: the machinery works as designed. But **22%
+are assessed below what the owner paid** — the market fell out from under
+them, and the assessment hasn't caught up. As a group, 2023 buyers' factored
+values sit **$52,000 (+4.4%) above today's market prices** (95% CI: +$19k to
++$73k).
+
+**Why it varies by ZIP.** Prop 13's 2% trajectory rises no matter what the
+market does, so a neighborhood's over-assessment gap is approximately 6%
+(three years of factored growth) minus its actual price change. County
+transfer records show ZIP-level price changes from 2023 to 2024–25 ranging
+from **−15.5% to +11.4%** — and the over-assessment ranking mirrors the price
+drop ranking exactly. The hardest-hit: 94705 (Berkeley hills, +25.5%
+over-assessed), 94609 (+25.4%), 94610 (+16.7%). The Tri-Valley kept climbing
+and its 2023 buyers remain under-assessed. One pair tells the story: 94705
+and 94539 (Fremont) both sat near $2.3–2.4M in 2023 — the same price tier —
+then one fell 15.5% and the other rose 9.8%. It isn't about price level (the
+correlation is 0.12); it's about local market dynamics.
+
+**My appeal, in context.** My ZIP code (94611) measures +$198,000 (+13.2%)
+over-assessed for peak-era buyers. My appeal argues −$185,000. The county's
+own data and my appraisal agree almost to the dollar.
+
+**How I checked myself.** The gold-standard design here is a repeat-sales
+study: same house, purchase price vs. resale price. I couldn't run it — the
+county publishes no bulk sale-history file (three specific reasons are
+documented in the methodology notes), so I used the closest feasible design:
+true 2023 purchase prices against Prop 13 trajectories, and true 2024–25
+sale prices as the market benchmark, both from county records. An early
+version of this analysis was contaminated by the 2021 refinance boom on both
+sides; I caught it, struck those numbers, and rebuilt on transfer-record
+prices. The results above are the clean ones.
+
+## 4. What this means — against the original intent
+
+In the mid-1970s, Bay Area home values were exploding and assessments with
+them — the LA County assessor warned of 100% valuation jumps in a single
+year. Homeowners, especially elderly ones on fixed incomes, faced being taxed
+out of houses they'd owned for decades: a tax on unrealized gains they had no
+cash to pay. Proposition 13 (June 1978, passed roughly 2-to-1) answered with
+three things: a 1% rate cap, a 2%-per-year cap on assessment growth, and an
+acquisition-value system — your assessment is your purchase price until you
+sell. The courts upheld it as fairer than what came before; the U.S. Supreme
+Court (1992) found a legitimate state interest in neighborhood stability, with
+Justice Blackmun writing that new buyers "don't require the same protection"
+as longtime owners.
+
+The intent was a shield. Compounded over 48 years, the shield became a
+tenure lottery. Nothing in 1978 contemplated a buyer paying tax at four times
+the effective rate of his neighbor — or a buyer being taxed on $185,000 of
+value that evaporated when mortgage rates doubled from 3% to 7%. The law's
+one downside protection, Proposition 8 (decline-in-value reassessment, also
+1978), exists on paper but is little-known and owner-initiated: the burden of
+proof sits entirely on the homeowner, and the assessor's office is not
+obligated to come looking. My data suggests roughly one in five 2023 buyers
+is already below their purchase price — how many of them know they can ask
+for a reduction?
+
+## 5. What the county should do
+
+Three concrete, low-cost steps for the Assessor's office — no legislation
+required:
+
+1. **Proactive decline-in-value reviews.** When a neighborhood's sale prices
+   fall materially below factored trajectories — a condition the office can
+   detect from its own transfer records — initiate Prop 8 reviews instead of
+   waiting for owners to discover the provision and file. The data to trigger
+   this already exists inside the office.
+2. **Notify owners.** When county records indicate a parcel's market value has
+   likely fallen below its assessed value, tell the owner — a line on the tax
+   bill, a letter, anything. Awareness is currently the whole ballgame.
+3. **Publish an annual assessment-vs-market report by neighborhood.** The
+   county already publishes the raw ingredients; a short yearly synthesis
+   would let every homeowner see where they stand without filing a public
+   records request or building this analysis themselves.
+
+None of this weakens Proposition 13. It finishes a job the law started in
+1978: making sure people are taxed on what their homes are actually worth.
+
+---
+
+*Methodology appendix, charts, and per-parcel data to follow. All analysis
+code and county data sources documented in the project repository.*
