@@ -16,7 +16,7 @@ of four — determined entirely by *when* each owner bought.
   at a median $238k vs $822k for homes bought in the last two years — 3.5x
   (steeper in Oakland: 4.2x).
 - **Effective tax rates:** pre-1990 buyers pay a median **0.20%** of market
-  value; 2024 buyers pay **0.94%** — a 4.6x multiple on ZIP-median proxies
+  value; 2024 buyers pay **0.94%** — a 4.7x multiple on ZIP-median proxies
   (plausibly 3–4x after within-ZIP value differences; statutory rate ≈ 1.17%).
 - **Peak buyers over-assessed:** 2023 buyers' factored values sit **+$42k
   (+3.5%)** above 2024–25 sale prices (95% bootstrap CI: +$7k to +$48k,
@@ -98,6 +98,8 @@ python3 src/download_taxrolls.py       # 7 annual rolls, resumable
 python3 src/validate_parcels.py
 python3 src/cohort_gaps_v4.py          # corrected gap analysis (buyer-specific factors)
 python3 src/prop8_verify.py            # committed Prop 8 verification
+python3 src/transfer_tax_city_check.py  # city-level transfer-tax inversion check
+python3 src/effective_rate_sensitivity.py  # +/-20% market-value sensitivity
 python3 src/effective_rates.py         # per-parcel effective rates
 python3 src/zhvi_peaks.py              # ZIP price peaks (needs ZHVI CSV, see data/README.md)
 python3 src/trajectories.py            # per-parcel assessment trajectories
