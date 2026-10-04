@@ -6,7 +6,9 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from datetime import datetime
 
-series = json.load(open("outputs/zhvi_zip_series.json"))
+import os
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+series = json.load(open(os.path.join(BASE, "outputs/zhvi_zip_series.json")))
 
 # spotlight ZIPs: high-drawdown vs kept-rising + Nebo's own
 PICKS = ["94705", "94609", "94610", "94611", "94539", "94555"]
@@ -36,5 +38,5 @@ ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y"))
 ax.legend(fontsize=9, loc="upper left")
 ax.grid(alpha=0.25)
 fig.tight_layout()
-fig.savefig("outputs/charts/zhvi_peak_divergence.png", dpi=150)
+fig.savefig(os.path.join(BASE, "outputs/charts/zhvi_peak_divergence.png"), dpi=150)
 print("wrote outputs/charts/zhvi_peak_divergence.png")

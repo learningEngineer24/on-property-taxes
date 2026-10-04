@@ -18,6 +18,7 @@ from collections import defaultdict
 from datetime import date
 
 # ---------- load transfers ----------
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root
 seen = set()
 sales = []  # (apn, year, price, zip, use_cd)
 for line in open(BASE + "/data/transfers.jsonl"):

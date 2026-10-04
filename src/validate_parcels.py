@@ -5,6 +5,8 @@ import json, math
 from collections import Counter
 from datetime import date
 
+import os
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root
 IN = BASE + "/data/parcels.jsonl"
 OUT = BASE + "/outputs/validation.json"
 

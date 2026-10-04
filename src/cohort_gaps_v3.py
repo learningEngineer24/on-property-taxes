@@ -21,6 +21,7 @@ from collections import defaultdict
 from datetime import date
 
 # ---------- deduped priced transfers ----------
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root
 seen = set()
 tr = []  # dicts
 for line in open(BASE + "/data/transfers.jsonl"):

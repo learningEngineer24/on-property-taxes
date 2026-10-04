@@ -4,12 +4,13 @@ Shows the 2021-22 peak directly: for each Alameda County ZIP, finds the
 post-2019 peak month and the drawdown since. Cross-checks the county
 transfer-price ZIP divergence found in cohort_gaps_v3.
 """
-import csv, json
+import csv, json, os
 from datetime import date
 
-SRC = "data/Zip_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv"
-OUT_SUMMARY = "outputs/zhvi_zip_peaks.json"
-OUT_SERIES = "outputs/zhvi_zip_series.json"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root
+SRC = os.path.join(BASE, "data/Zip_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv")
+OUT_SUMMARY = os.path.join(BASE, "outputs/zhvi_zip_peaks.json")
+OUT_SERIES = os.path.join(BASE, "outputs/zhvi_zip_series.json")
 
 def parse(v):
     v = v.strip()
