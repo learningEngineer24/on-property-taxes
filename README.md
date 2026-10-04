@@ -8,7 +8,7 @@ property taxes. Nearly fifty years later, it runs a two-sided distortion.
 Longtime owners are taxed on a sliver of their homes' value, while buyers
 from the 2021–2023 peak are taxed on value that no longer exists. Two
 identical houses on the same street can carry tax bills differing by a factor
-of four — determined entirely by *when* each owner bought.
+of four — determined mostly by *when* each owner bought, and partly by *where*.
 
 ## Findings (Oct 2026)
 
