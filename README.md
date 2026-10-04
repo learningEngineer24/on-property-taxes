@@ -19,14 +19,18 @@ of four — determined entirely by *when* each owner bought.
 - **Peak buyers over-assessed:** 2023 buyers' factored values sit **+$52k
   (+4.4%)** above today's market prices (95% bootstrap CI: +$19k to +$73k),
   measured against true sale prices from county transfer records.
-- **The safety valve fires, but only for some:** 22% of 2023 buyers (1,134 of
-  5,113) are already assessed *below* their purchase price — Prop 8
-  decline-in-value reductions. The rest must discover the provision and
-  appeal on their own.
+- **The safety valve fires, but only for some:** tracing 5,113 2023 buyers
+  through seven years of tax rolls, **27% have received a Prop 8
+  decline-in-value reduction** (median cut 9.8%), concentrated in 2024–2025
+  with a second wave in the 2026 cycle. The rest must discover the provision
+  and appeal on their own.
 - **It's geographic:** ZIP-level price changes from 2023 to 2024–25 range
   from −15.5% (94705, Berkeley hills) to +11.4% (94555, Fremont), and the
   over-assessment map mirrors the price-drop map. 94705 buyers are +25.5%
   over-assessed; Tri-Valley buyers remain under-assessed.
+- **The 2022 peak is dated:** Zillow ZHVI shows 41 of 47 Alameda ZIPs peaked
+  in spring 2022 (median drawdown 13% since) — the price collapse that
+  stranded peak buyers is directly measured, not inferred.
 
 ## Data sources
 
@@ -37,8 +41,9 @@ All from public records — no scraping:
 | Alameda County Open Data Hub — Parcels FeatureService | 489,628 parcels: assessed values, last recorded document, use codes, tax rate areas, centroids | 489,628 |
 | Assessor's Ownership Transfer List | Priced sales 2023–2025 (price from documentary transfer tax) | 23,633 unique |
 | Property Tax Rates 2025 + 2024 | Ad-valorem rate per tax rate area (combined: 1,416 TRAs) | 20,311 |
-| Secured Tax Rolls 2019–2026 | Annual per-parcel assessed values | ~3.4M (in progress) |
+| Secured Tax Rolls 2019–2026 | Annual per-parcel assessed values (7 layers) | ~3.28M |
 | FRED MORTGAGE30US | 30-yr fixed mortgage rates (the rate-shock evidence) | weekly, 1971– |
+| Zillow ZHVI (ZIP, smoothed SA) | Monthly ZIP home values — dates the 2022 peak | 47 Alameda ZIPs |
 
 Raw bulk files are too large for git — see `data/README.md` for reproduction
 with the scripts in `src/`.
@@ -83,9 +88,13 @@ python3 src/download_parcels.py        # 489k parcels, resumable
 python3 src/download_transfers.py      # ownership transfers w/ prices
 python3 src/download_tax_rates.py      # 2025 TRA rates
 python3 src/download_tax_rates_2024.py # 2024 TRA rates (fills gaps)
+python3 src/download_taxrolls.py       # 7 annual rolls, resumable
 python3 src/validate_parcels.py
 python3 src/cohort_gaps_v3.py          # clean gap analysis
 python3 src/effective_rates.py         # per-parcel effective rates
+python3 src/zhvi_peaks.py              # ZIP price peaks (needs ZHVI CSV, see data/README.md)
+python3 src/trajectories.py            # per-parcel assessment trajectories + Prop 8 verification
+python3 src/charts_final.py            # trajectory / effective-rate / ZIP-gap charts
 ```
 
 ## Contents
