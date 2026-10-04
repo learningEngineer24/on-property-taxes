@@ -1,8 +1,8 @@
 # On Property Taxes — DRAFT (Oct 3, 2026)
 
-*Status: draft. Pending: tax-roll trajectory visual, Redfin/ZHVI 2022-peak
-confirmation, final charts. All numbers below are from Alameda County's own
-open data unless noted.*
+*Status: draft (revised with full tax-roll trajectories and ZHVI peak series,
+Oct 3, 2026). Pending: Nebo's red pen. All numbers below are from Alameda
+County's own open data unless noted.*
 
 ---
 
@@ -32,12 +32,16 @@ each owner bought.
 
 **The data.** Alameda County publishes an extraordinary amount of open data:
 489,628 parcels (assessed values, last recorded document, property type, tax
-rate area), the ad-valorem tax rate for each of 1,416 tax rate areas, and —
-crucially — an ownership transfer list with 23,633 priced sales from 2023 to
-2025, with sale prices backed out from the documentary transfer tax. Under
+rate area), the ad-valorem tax rate for each of 1,416 tax rate areas, an
+ownership transfer list with 23,633 priced sales from 2023 to 2025 (sale
+prices backed out from the documentary transfer tax), and — the piece that
+made verification possible — the annual secured tax rolls for 2019 through
+2026, giving per-parcel assessed values for seven straight years. Under
 Prop 13, a sale forces reassessment at the sale price, so the county's data
-contains its own market anchors. No outside data was needed for the core
-findings.
+contains its own market anchors. For the price-peak question I used Zillow's
+ZHVI ZIP-level series (smoothed, seasonally adjusted, monthly): 41 of 47
+Alameda County ZIPs peaked in the spring of 2022, with a median drawdown of
+13% since. No other outside data was needed.
 
 **The tenure gradient.** Among Oakland single-family homes, the median assessed
 value for homes held 31+ years is $158,000. For homes bought in the last two
@@ -70,6 +74,16 @@ them, and the assessment hasn't caught up. As a group, 2023 buyers' factored
 values sit **$52,000 (+4.4%) above today's market prices** (95% CI: +$19k to
 +$73k).
 
+**Verified in the tax rolls.** The annual rolls let me trace 5,113 of those
+2023 buyers parcel by parcel, 2019 through 2026. **27% have received a Prop 8
+decline-in-value reduction** — a year-over-year cut in their assessed value,
+median cut 9.8%, concentrated in the 2024 and 2025 rolls, with a second wave
+visible in the 2026 cycle (about 1,000 more cuts between the January 2025
+roll and today, after excluding resales). The safety valve exists and it is
+being used. It is also years late and far from complete: more than seven in
+ten peak buyers are still riding the full 2% trajectory on value the market
+took away.
+
 **Why it varies by ZIP.** Prop 13's 2% trajectory rises no matter what the
 market does, so a neighborhood's over-assessment gap is approximately 6%
 (three years of factored growth) minus its actual price change. County
@@ -84,7 +98,12 @@ correlation is 0.12); it's about local market dynamics.
 
 **My appeal, in context.** My ZIP code (94611) measures +$198,000 (+13.2%)
 over-assessed for peak-era buyers. My appeal argues −$185,000. The county's
-own data and my appraisal agree almost to the dollar.
+own data and my requested value agree almost to the dollar. And my parcel's
+own trajectory tells the story in miniature: bought in 2021, reassessed to
+$1,706,600, growing at 2% a year — until the assessor granted a Prop 8 cut
+to $1,600,000 in 2024, an 8% reduction. The office has already agreed with
+me once, in effect. I'm arguing the market fell further than that cut
+acknowledged.
 
 **How I checked myself.** The gold-standard design here is a repeat-sales
 study: same house, purchase price vs. resale price. I couldn't run it — the
@@ -115,11 +134,11 @@ tenure lottery. Nothing in 1978 contemplated a buyer paying tax at four times
 the effective rate of his neighbor — or a buyer being taxed on $185,000 of
 value that evaporated when mortgage rates doubled from 3% to 7%. The law's
 one downside protection, Proposition 8 (decline-in-value reassessment, also
-1978), exists on paper but is little-known and owner-initiated: the burden of
-proof sits entirely on the homeowner, and the assessor's office is not
-obligated to come looking. My data suggests roughly one in five 2023 buyers
-is already below their purchase price — how many of them know they can ask
-for a reduction?
+1978), does get used — my parcel-level trace found Prop 8 cuts for 27% of
+2023 buyers — but the burden of discovery still sits entirely on the
+homeowner, and the assessor's office does not come looking. More than seven
+in ten peak buyers are still assessed on the full trajectory. How many of
+them know they can ask for a reduction?
 
 ## 5. What the county should do
 
