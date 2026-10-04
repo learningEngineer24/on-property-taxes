@@ -11,14 +11,21 @@ Correct Prop 13 trajectory to the Jan-2026 lien ("assessed today"):
   - H2-2023 buyers (month >= 7):  price x 1.02^2
 v3 applied 1.02^3 to everyone, overstating expected AV ~2% for ~60% of buyers.
 
-Also new in v4: ZIP-block bootstrap for the cross-section CI (v3's independent
-resampling ignored within-ZIP correlation).
+Also new in v4: two views of uncertainty. (1) A simple bootstrap of the pooled
+medians, which quantifies SAMPLING NOISE ONLY (v3's independent resampling
+also ignored within-ZIP correlation). A ZIP-block bootstrap of the pooled
+median is deliberately NOT used: ZIP price levels differ enormously, so the
+pooled median is not a block-coherent estimand (resampling ZIPs explodes the
+CI to +/-$200k). (2) The coherent alternative: the median ZIP-level gap, with
+a ZIP-block bootstrap CI -- here ZIPs ARE the units, so block resampling is
+valid.
 """
 import json, random
+import os
 from collections import defaultdict
 from datetime import date
 
-BASE = "/home/hatch/workspace/alameda-assessment"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root
 
 def factor_2023(month):
     return 1.02 ** 3 if month <= 6 else 1.02 ** 2

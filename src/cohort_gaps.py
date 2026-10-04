@@ -12,10 +12,11 @@ Negative gap => classic Prop 13 discount.
 Bootstrap CI on the headline 2021-2022 gap.
 """
 import json, random
+import os
 from collections import defaultdict
 from datetime import date
 
-IN = "/home/hatch/workspace/alameda-assessment/data/parcels.jsonl"
+IN = BASE + "/data/parcels.jsonl"
 
 cohorts = defaultdict(list)   # doc_year -> [assessed]
 recent = []                    # sold 2024-2026
@@ -95,5 +96,5 @@ json.dump({
     "by_zip_2021_2022": [{"zip": z, "gap": g, "n_buy": n1, "n_recent": n2,
                           "med_buy": m1, "med_recent": m2}
                          for g, z, n1, n2, m1, m2 in rows],
-}, open("/home/hatch/workspace/alameda-assessment/outputs/cohort_gaps.json", "w"), indent=1)
+}, open(BASE + "/outputs/cohort_gaps.json", "w"), indent=1)
 print("\nwrote outputs/cohort_gaps.json")

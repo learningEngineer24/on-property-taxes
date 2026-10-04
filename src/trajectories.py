@@ -7,9 +7,10 @@ across tax-roll years, detect Prop 8 decline-in-value reductions
 Also traces the user's own parcel for the write-up.
 """
 import json
+import os
 from collections import defaultdict
 
-BASE = "/home/hatch/workspace/alameda-assessment"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root
 YEARS = ["2019_to_2020", "2020_to_2021", "2021_to_2022", "2022_to_2023",
          "2023_to_2024", "2024_to_2025", "2025_to_2026"]
 YEAR_LABEL = {"2019_to_2020": "2019", "2020_to_2021": "2020", "2021_to_2022": "2021",

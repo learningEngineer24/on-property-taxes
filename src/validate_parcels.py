@@ -5,8 +5,8 @@ import json, math
 from collections import Counter
 from datetime import date
 
-IN = "/home/hatch/workspace/alameda-assessment/data/parcels.jsonl"
-OUT = "/home/hatch/workspace/alameda-assessment/outputs/validation.json"
+IN = BASE + "/data/parcels.jsonl"
+OUT = BASE + "/outputs/validation.json"
 
 FIELDS = ["OBJECTID", "APN", "SitusAddress", "SitusCity", "SitusZip", "Land",
           "Imps", "TotalNetValue", "LatestDocumentDate", "UseCode",
@@ -89,7 +89,7 @@ report = {
     "homeowner_exemption_rows": hoex,
 }
 import os
-os.makedirs("/home/hatch/workspace/alameda-assessment/outputs", exist_ok=True)
+os.makedirs(BASE + "/outputs", exist_ok=True)
 json.dump(report, open(OUT, "w"), indent=1, default=str)
 
 print(f"rows: {n} (expected 489636)")

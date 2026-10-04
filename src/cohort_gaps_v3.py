@@ -16,13 +16,14 @@ supersedes v3's gap numbers. Kept for the audit trail.
     refi contamination biases this DOWN => lower bound on over-assessment).
 """
 import json, random
+import os
 from collections import defaultdict
 from datetime import date
 
 # ---------- deduped priced transfers ----------
 seen = set()
 tr = []  # dicts
-for line in open("/home/hatch/workspace/alameda-assessment/data/transfers.jsonl"):
+for line in open(BASE + "/data/transfers.jsonl"):
     r = json.loads(line)
     apn = (r.get("apn") or "").strip()
     v = (r.get("value_from_trans_tax") or "").strip().rstrip(".")
@@ -47,7 +48,7 @@ print(f"unique priced transfers: {len(tr):,}")
 # ---------- parcels: assessed by APN + 2022 buyer cohort ----------
 assessed_by_apn = {}
 c2022 = defaultdict(list)
-for line in open("/home/hatch/workspace/alameda-assessment/data/parcels.jsonl"):
+for line in open(BASE + "/data/parcels.jsonl"):
     r = json.loads(line)
     a = (r.get("APN") or "").strip()
     v = r.get("TotalNetValue")
@@ -141,5 +142,5 @@ json.dump({
                               "n_buy": len(A), "n_sales": len(B)},
     "cohort_2022_vs_true": {"gap": g1, "ci95": [ds1[25], ds1[975]], "n_buy": len(cA)},
     "by_zip_b": [{"zip": z, "gap": g, "n23": n1, "n2425": n2} for g, z, n1, n2, m1, m2 in rows],
-}, open("/home/hatch/workspace/alameda-assessment/outputs/cohort_gaps_v3.json", "w"), indent=1)
+}, open(BASE + "/outputs/cohort_gaps_v3.json", "w"), indent=1)
 print("\nwrote outputs/cohort_gaps_v3.json")

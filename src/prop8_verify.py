@@ -20,10 +20,11 @@ CORRECTS the earlier 27.2% figure (computed in an ephemeral script, never
 committed), which swept in transfer-driven and seller-history declines.
 """
 import json
+import os
 from collections import Counter
 from datetime import date
 
-BASE = "/home/hatch/workspace/alameda-assessment"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root
 ROLL_24 = "2024_to_2025"   # lien Jan 1, 2024 -- first post-purchase roll for 2023 buyers
 ROLL_25 = "2025_to_2026"   # lien Jan 1, 2025
 

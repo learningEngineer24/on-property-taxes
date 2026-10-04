@@ -13,13 +13,14 @@ recent-document cohort).
 - Repeat sales: APNs with 2+ priced transfers -> sale2 vs sale1 * 1.02^yrs.
 """
 import json
+import os
 from collections import defaultdict
 from datetime import date
 
 # ---------- load transfers ----------
 seen = set()
 sales = []  # (apn, year, price, zip, use_cd)
-for line in open("/home/hatch/workspace/alameda-assessment/data/transfers.jsonl"):
+for line in open(BASE + "/data/transfers.jsonl"):
     r = json.loads(line)
     apn = (r.get("apn") or "").strip()
     v = (r.get("value_from_trans_tax") or "").strip().rstrip(".")
@@ -44,7 +45,7 @@ print(f"unique priced transfers: {len(sales):,}")
 # ---------- parcel APN set + 2021-22 cohort ----------
 parcel_apns = set()
 c2122 = defaultdict(list)   # zip -> [assessed]
-for line in open("/home/hatch/workspace/alameda-assessment/data/parcels.jsonl"):
+for line in open(BASE + "/data/parcels.jsonl"):
     r = json.loads(line)
     a = (r.get("APN") or "").strip()
     if a:
@@ -126,5 +127,5 @@ json.dump({
     "by_zip": [{"zip": z, "gap": g, "n_buy": n1, "n_sales": n2,
                 "med_assessed": ma, "med_sale": mb} for g, z, n1, n2, ma, mb in rows],
     "repeat_sale_pairs": tot, "pairs_lagging_trajectory": lag,
-}, open("/home/hatch/workspace/alameda-assessment/outputs/cohort_gaps_v2.json", "w"), indent=1)
+}, open(BASE + "/outputs/cohort_gaps_v2.json", "w"), indent=1)
 print("wrote outputs/cohort_gaps_v2.json")

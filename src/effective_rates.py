@@ -10,13 +10,14 @@ Writes outputs/effective_rates.json (cohort aggregates) and
 outputs/parcel_effective_rates.jsonl (SFR parcels only).
 """
 import json
+import os
 from collections import defaultdict
 from datetime import date
 
 # ---------- transfer medians by (zip, type) ----------
 seen = set()
 px = defaultdict(list)
-for line in open("/home/hatch/workspace/alameda-assessment/data/transfers.jsonl"):
+for line in open(BASE + "/data/transfers.jsonl"):
     r = json.loads(line)
     apn = (r.get("apn") or "").strip()
     v = (r.get("value_from_trans_tax") or "").strip().rstrip(".")
@@ -49,7 +50,7 @@ county_med = med(allp)
 print(f"county 2024-25 transfer median: ${county_med:,.0f}")
 
 # ---------- TRA rates (int-normalized keys: '26:023' -> '26:23') ----------
-tra_raw = json.load(open("/home/hatch/workspace/alameda-assessment/data/tra_rates_combined.json"))["combined"]
+tra_raw = json.load(open(BASE + "/data/tra_rates_combined.json"))["combined"]
 tra = {}
 for k, v in tra_raw.items():
     p, s = k.split(":")
@@ -58,7 +59,7 @@ for k, v in tra_raw.items():
 # ---------- Prop 8 flags (paired 2023) ----------
 seen2 = set()
 buy2023 = {}
-for line in open("/home/hatch/workspace/alameda-assessment/data/transfers.jsonl"):
+for line in open(BASE + "/data/transfers.jsonl"):
     r = json.loads(line)
     apn = (r.get("apn") or "").strip()
     v = (r.get("value_from_trans_tax") or "").strip().rstrip(".")
@@ -80,8 +81,8 @@ for line in open("/home/hatch/workspace/alameda-assessment/data/transfers.jsonl"
 cohort_rates = defaultdict(list)
 n, n_nomarket, n_norate = 0, 0, 0
 prop8_flags = []
-out = open("/home/hatch/workspace/alameda-assessment/outputs/parcel_effective_rates.jsonl", "w")
-for line in open("/home/hatch/workspace/alameda-assessment/data/parcels.jsonl"):
+out = open(BASE + "/outputs/parcel_effective_rates.jsonl", "w")
+for line in open(BASE + "/data/parcels.jsonl"):
     r = json.loads(line)
     if r.get("UseCode") != "1100":
         continue
@@ -136,5 +137,5 @@ json.dump({
     "by_cohort": {c: {"n": len(v), "median": sorted(v)[len(v)//2],
                       "p90": sorted(v)[int(len(v)*0.9)]}
                   for c, v in sorted(cohort_rates.items())},
-}, open("/home/hatch/workspace/alameda-assessment/outputs/effective_rates.json", "w"), indent=1)
+}, open(BASE + "/outputs/effective_rates.json", "w"), indent=1)
 print("wrote outputs/effective_rates.json + parcel_effective_rates.jsonl")

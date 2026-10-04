@@ -4,13 +4,14 @@
 3. ZIP price change vs over-assessment gap
 """
 import json
+import os
 from collections import defaultdict
 from datetime import date
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-BASE = "/home/hatch/workspace/alameda-assessment"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root
 plt.rcParams.update({"font.size": 10})
 
 # ---------- 1. trajectories ----------
