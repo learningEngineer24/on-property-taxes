@@ -1,0 +1,10 @@
+{
+ "n_buyers": 4981,
+ "cut_2025_roll": 95,
+ "cut_2026_cycle": 1029,
+ "union": 1111,
+ "union_share": 0.22304758080706685,
+ "median_cut_depth": 0.08645276292335116,
+ "hoex_band_cuts": 1,
+ "definition": "strictly post-purchase YoY declines; 2026 cycle excludes 2024-25 resales"
+}
