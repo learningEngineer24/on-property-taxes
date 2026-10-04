@@ -1,0 +1,75 @@
+{
+ "by_city": [
+  {
+   "city": "SAN LORENZO",
+   "median_ratio": 0.9928,
+   "n": 33
+  },
+  {
+   "city": "LIVERMORE",
+   "median_ratio": 0.9979,
+   "n": 177
+  },
+  {
+   "city": "SAN LEANDRO",
+   "median_ratio": 0.9981,
+   "n": 109
+  },
+  {
+   "city": "PIEDMONT",
+   "median_ratio": 0.9984,
+   "n": 27
+  },
+  {
+   "city": "OAKLAND",
+   "median_ratio": 1.0,
+   "n": 549
+  },
+  {
+   "city": "BERKELEY",
+   "median_ratio": 1.0,
+   "n": 112
+  },
+  {
+   "city": "ALAMEDA",
+   "median_ratio": 1.0,
+   "n": 69
+  },
+  {
+   "city": "HAYWARD",
+   "median_ratio": 1.0,
+   "n": 178
+  },
+  {
+   "city": "CASTRO VALLEY",
+   "median_ratio": 1.0,
+   "n": 68
+  },
+  {
+   "city": "UNION CITY",
+   "median_ratio": 1.0,
+   "n": 56
+  },
+  {
+   "city": "NEWARK",
+   "median_ratio": 1.0,
+   "n": 70
+  },
+  {
+   "city": "PLEASANTON",
+   "median_ratio": 1.0,
+   "n": 103
+  },
+  {
+   "city": "FREMONT",
+   "median_ratio": 1.0,
+   "n": 193
+  },
+  {
+   "city": "DUBLIN",
+   "median_ratio": 1.0,
+   "n": 70
+  }
+ ],
+ "note": "H1-2023 SFR buyers; ratio should be ~1.00 in every city if transfer-tax inversion is clean. City medians 0.993-1.000: no city-level distortion found."
+}

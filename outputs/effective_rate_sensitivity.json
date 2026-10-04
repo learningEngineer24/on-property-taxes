@@ -1,0 +1,19 @@
+{
+ "base": {
+  "old_rate": 0.002014465070967742,
+  "new_rate": 0.009440403076923077,
+  "gradient": 4.686307652079537
+ },
+ "compress_old_low_new_high": {
+  "old_rate": 0.0025180813387096776,
+  "new_rate": 0.007867002564102565,
+  "gradient": 3.124205101386358,
+  "note": "longtime owners' homes worth 20% less than ZIP median; recent buyers' worth 20% more -- the plausible direction"
+ },
+ "widen_old_high_new_low": {
+  "old_rate": 0.0016787208924731185,
+  "new_rate": 0.011800503846153845,
+  "gradient": 7.0294614781193046,
+  "note": "opposite perturbation; implausible direction, bounds the range"
+ }
+}
