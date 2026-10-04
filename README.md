@@ -12,25 +12,28 @@ of four — determined entirely by *when* each owner bought.
 
 ## Findings (Oct 2026)
 
-- **Tenure gradient:** Oakland single-family homes held 31+ years are assessed
-  at a median $158k vs $661k for homes bought in the last two years — 4.2x.
+- **Tenure gradient:** county single-family homes held 31+ years are assessed
+  at a median $238k vs $822k for homes bought in the last two years — 3.5x
+  (steeper in Oakland: 4.2x).
 - **Effective tax rates:** pre-1990 buyers pay a median **0.20%** of market
-  value; 2022 buyers pay **0.93%** — a 4.6x multiple (statutory rate ≈ 1.17%).
-- **Peak buyers over-assessed:** 2023 buyers' factored values sit **+$52k
-  (+4.4%)** above today's market prices (95% bootstrap CI: +$19k to +$73k),
-  measured against true sale prices from county transfer records.
-- **The safety valve fires, but only for some:** tracing 5,113 2023 buyers
-  through seven years of tax rolls, **27% have received a Prop 8
-  decline-in-value reduction** (median cut 9.8%), concentrated in 2024–2025
-  with a second wave in the 2026 cycle. The rest must discover the provision
-  and appeal on their own.
+  value; 2024 buyers pay **0.94%** — a 4.6x multiple on ZIP-median proxies
+  (plausibly 3–4x after within-ZIP value differences; statutory rate ≈ 1.17%).
+- **Peak buyers over-assessed:** 2023 buyers' factored values sit **+$42k
+  (+3.5%)** above 2024–25 sale prices (95% bootstrap CI: +$7k to +$48k,
+  sampling noise only), measured against true sale prices from county transfer
+  records with buyer-specific Prop 13 trajectories (the county applies the 2%
+  factor at the first lien only for January–June buyers).
+- **The safety valve fires, but late:** tracing 5,113 2023 buyers through
+  seven tax rolls, **22% received a Prop 8 decline-in-value reduction**
+  (median cut 8.6%) — barely 2% had relief through the January 2025 roll;
+  a ~20% wave arrived in the 2026 cycle.
 - **It's geographic:** ZIP-level price changes from 2023 to 2024–25 range
-  from −15.5% (94705, Berkeley hills) to +11.4% (94555, Fremont), and the
-  over-assessment map mirrors the price-drop map. 94705 buyers are +25.5%
+  from −15.5% (94705, Berkeley hills) to +11.4% (94555, Fremont); the
+  over-assessment ranking follows the price-drop ranking mechanically
+  (gap ≈ factored growth − price change). 94705 buyers are +23.1%
   over-assessed; Tri-Valley buyers remain under-assessed.
-- **The 2022 peak is dated:** Zillow ZHVI shows 41 of 47 Alameda ZIPs peaked
-  in spring 2022 (median drawdown 13% since) — the price collapse that
-  stranded peak buyers is directly measured, not inferred.
+- **The 2022 peak is dated:** Zillow ZHVI shows 41 of 46 Alameda ZIPs peaked
+  in spring 2022 (median drawdown 13% since).
 
 ## Data sources
 
@@ -54,10 +57,13 @@ with the scripts in `src/`.
    reassessment at the sale price, so recent transfer-list prices *are* market
    prices. No external price data needed for the core results.
 2. **Paired 2023 test:** each 2023 buyer's assessed value today vs. its Prop 13
-   trajectory (price × 1.02³). Median ratio 0.98 — the machinery works; the
-   22% below purchase price are Prop 8 cuts.
+   trajectory — with buyer-specific factors the rolls reveal (January–June
+   buyers: price × 1.02³; July–December buyers: price × 1.02², since the
+   county applies no inflation factor at the first lien for H2 buyers).
+   Median ratio 1.00 — the machinery works; the 22% below purchase price are
+   Prop 8 cuts.
 3. **Cohort gaps:** 2023 buyers' factored values vs. true 2024–25 sale
-   prices, by ZIP, with bootstrap confidence intervals.
+   prices, by ZIP, with bootstrap confidence intervals (sampling noise only).
 4. **Effective rates:** (assessed × TRA rate) ÷ ZIP-median market value, per
    parcel, by purchase cohort.
 
@@ -90,10 +96,11 @@ python3 src/download_tax_rates.py      # 2025 TRA rates
 python3 src/download_tax_rates_2024.py # 2024 TRA rates (fills gaps)
 python3 src/download_taxrolls.py       # 7 annual rolls, resumable
 python3 src/validate_parcels.py
-python3 src/cohort_gaps_v3.py          # clean gap analysis
+python3 src/cohort_gaps_v4.py          # corrected gap analysis (buyer-specific factors)
+python3 src/prop8_verify.py            # committed Prop 8 verification
 python3 src/effective_rates.py         # per-parcel effective rates
 python3 src/zhvi_peaks.py              # ZIP price peaks (needs ZHVI CSV, see data/README.md)
-python3 src/trajectories.py            # per-parcel assessment trajectories + Prop 8 verification
+python3 src/trajectories.py            # per-parcel assessment trajectories
 python3 src/charts_final.py            # trajectory / effective-rate / ZIP-gap charts
 ```
 
