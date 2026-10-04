@@ -1,4 +1,8 @@
-"""Re-run the cohort-gap analysis anchored on TRUE sale prices from the
+"""SUPERSEDED — DO NOT CITE. Buyer side still refinance-contaminated
+(see notes/methodology_gold_standard.md). Rebuilt as cohort_gaps_v3.py
+and corrected in cohort_gaps_v4.py. Kept for transparency.
+
+Re-run the cohort-gap analysis anchored on TRUE sale prices from the
 Assessor's ownership transfer list (instead of median assessed of the
 recent-document cohort).
 

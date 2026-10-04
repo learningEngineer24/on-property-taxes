@@ -1,4 +1,9 @@
-"""Cohort-gap analysis: for each purchase-year cohort Y,
+"""SUPERSEDED — DO NOT CITE. Both sides contaminated by the 2021 refinance
+wave (see notes/methodology_gold_standard.md). Rebuilt as cohort_gaps_v3.py
+(clean transfer-record design) and corrected in cohort_gaps_v4.py
+(buyer-specific Prop 13 trajectory factors). Kept for transparency.
+
+Cohort-gap analysis: for each purchase-year cohort Y,
 gap(Y) = median(assessed | bought in Y) - median(assessed | sold 2024-2026),
 matched on geography + property type (SFR, UseCode 1100).
 

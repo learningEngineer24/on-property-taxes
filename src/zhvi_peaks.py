@@ -20,7 +20,8 @@ with open(SRC, newline="") as f:
     header = next(rdr)
     date_cols = [i for i, h in enumerate(header) if h[:4].isdigit()]
     dates = [header[i] for i in date_cols]
-    rows = [r for r in rdr if len(r) > 9 and r[8] == "Alameda County"]
+    # 94612 (downtown Oakland) is non-residential (PO boxes); exclude from headlines
+    rows = [r for r in rdr if len(r) > 9 and r[8] == "Alameda County" and r[2] != "94612"]
 
 print(f"Alameda ZIPs: {len(rows)}; months: {dates[0]}..{dates[-1]}")
 

@@ -1,5 +1,11 @@
 """v3 gap analysis with clean identification.
 
+NOTE (Oct 2026): the identification here is correct, but v3 applies a uniform
+1.02^3 Prop 13 trajectory to all 2023 buyers. The county's rolls show H1-2023
+buyers enroll at x1.02 at the first lien while H2-2023 buyers enroll at x1.00 --
+see cohort_gaps_v4.py, which corrects the factor (H1: 1.02^3, H2: 1.02^2) and
+supersedes v3's gap numbers. Kept for the audit trail.
+
 (a) PAIRED 2023 (user's design, executable): APNs with a priced 2023 SFR
     transfer -> join parcel assessed value today -> compare against
     price * 1.02^3 (the Prop 13 trajectory). Flags Prop 8 reductions.

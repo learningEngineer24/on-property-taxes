@@ -40,29 +40,36 @@ for line in open(f"{BASE}/data/transfers.jsonl"):
         continue
     seen.add(key)
     try:
-        price = float(v); y = date.fromtimestamp(int(r["transfer_dt"]) / 1000).year
+        price = float(v)
+        dt = date.fromtimestamp(int(r["transfer_dt"]) / 1000)
     except Exception:
         continue
-    if price >= 50000 and y == 2023 and (r.get("use_cd") or "").strip() == "1100":
-        buyers.append((apn, price))
+    if price >= 50000 and dt.year == 2023 and (r.get("use_cd") or "").strip() == "1100":
+        buyers.append((apn, price, dt.month))
 
 def pct(vals, q):
     s = sorted(vals); return s[int(len(s) * q)]
 
-series = defaultdict(list)  # label -> ratios
-for apn, price in buyers:
+# split by transfer half: H1 buyers get the 2% factor at the Jan-2024 lien, H2 don't
+series_h1 = defaultdict(list)
+series_h2 = defaultdict(list)
+for apn, price, m in buyers:
     v24, v25, vc = rolls["2024_to_2025"].get(apn), rolls["2025_to_2026"].get(apn), cur.get(apn)
     if v24 and v25 and vc:
-        series["2023 purchase"].append(100.0)
-        series["Jan 2024"].append(v24 / price * 100)
-        series["Jan 2025"].append(v25 / price * 100)
-        series["Jan 2026"].append(vc / price * 100)
+        s = series_h1 if m <= 6 else series_h2
+        s["2023 purchase"].append(100.0)
+        s["Jan 2024"].append(v24 / price * 100)
+        s["Jan 2025"].append(v25 / price * 100)
+        s["Jan 2026"].append(vc / price * 100)
 
 labels = ["2023 purchase", "Jan 2024", "Jan 2025", "Jan 2026"]
-med = [pct(series[l], 0.5) for l in labels]
-p25 = [pct(series[l], 0.25) for l in labels]
-p75 = [pct(series[l], 0.75) for l in labels]
-two = [100, 102, 104.04, 106.12]
+med_h1 = [pct(series_h1[l], 0.5) for l in labels]
+med_h2 = [pct(series_h2[l], 0.5) for l in labels]
+p25 = [pct(series_h1[l] + series_h2[l], 0.25) for l in labels]
+p75 = [pct(series_h1[l] + series_h2[l], 0.75) for l in labels]
+# Prop 13 trajectories as actually applied: H1 -> x1.02 at first lien; H2 -> x1.00
+two_h1 = [100, 102, 104.04, 106.12]
+two_h2 = [100, 100, 102, 104.04]
 # user's parcel, indexed to 2022 reassessed base 1,706,600 (purchase-year proxy).
 # x positions on the cohort calendar axis: -1 = 2022 (his purchase year)
 nebo = {"2022 purchase": 100.0, "Jan 2023": 1740871/1706600*100,
@@ -73,30 +80,38 @@ nebo_x = [-1, 0, 1, 2, 3]
 
 fig, ax = plt.subplots(figsize=(10, 5.5))
 x = list(range(4))
-ax.fill_between(x, p25, p75, alpha=0.25, label="2023 buyers: interquartile range")
-ax.plot(x, med, "o-", linewidth=2.2, label="2023 buyers: median (n=%d)" % len(series["2023 purchase"]))
-ax.plot([-1, 0, 1, 2, 3], [100, 102, 104.04, 106.12, 108.24], "--", color="gray",
-        label="Prop 13 2% factored growth (from each purchase)")
+n_h1, n_h2 = len(series_h1["2023 purchase"]), len(series_h2["2023 purchase"])
+ax.fill_between(x, p25, p75, alpha=0.18, label="2023 buyers: interquartile range (pooled)")
+ax.plot(x, med_h1, "o-", linewidth=2.2,
+        label=f"2023 H1 buyers: median (n={n_h1})")
+ax.plot(x, med_h2, "o-", linewidth=2.2,
+        label=f"2023 H2 buyers: median (n={n_h2})")
+ax.plot(x, two_h1, "--", color="gray",
+        label="Prop 13 trajectory as applied: H1 buyers (x1.02 at first lien)")
+ax.plot(x, two_h2, ":", color="gray",
+        label="Prop 13 trajectory as applied: H2 buyers (x1.00 at first lien)")
 ax.plot(nebo_x, [nebo[l] for l in nebo_order], "s-", color="#c0392b",
-        linewidth=2, label="My parcel (2021 buyer, Prop 8 cut in 2024)")
+        linewidth=2, label="Example parcel: 2021 buyer, Prop 8 cut in 2024")
 ax.set_xticks([-1, 0, 1, 2, 3])
-ax.set_xticklabels(["2022\n(my purchase)", "2023\n(my Jan 2023 /\ncohort purchase)", "Jan 2024", "Jan 2025", "Jan 2026"])
+ax.set_xticklabels(["2022\n(example purchase)", "2023\n(example Jan 2023 /\ncohort purchase)", "Jan 2024", "Jan 2025", "Jan 2026"])
 ax.set_ylabel("Assessed value / purchase price × 100")
 ax.set_title("What happened after the purchase: assessments vs. the Prop 13 trajectory",
              fontsize=13, fontweight="bold")
-ax.legend(fontsize=9); ax.grid(alpha=0.25)
+ax.legend(fontsize=8.5); ax.grid(alpha=0.25)
 fig.tight_layout(); fig.savefig(f"{BASE}/outputs/charts/trajectories.png", dpi=150)
-print("wrote trajectories.png", {l: round(m, 1) for l, m in zip(labels, med)})
+print("wrote trajectories.png",
+      {l: (round(a, 1), round(b, 1)) for l, a, b in zip(labels, med_h1, med_h2)})
 
 # ---------- 2. effective rate by cohort ----------
 er = json.load(open(f"{BASE}/outputs/effective_rates.json"))["by_cohort"]
 order = ["pre-1990" if "pre" in k.lower() else k for k in er]
-# normalize known cohort keys
+# normalize known cohort keys; drop 2026 (partial year: document-year proxy
+# degrades at the right edge -- dominated by non-reset documents)
 cats, vals = [], []
 for key, disp in [("pre1990", "pre-1990"), ("1990s", "1990s"), ("2000s", "2000s"),
                   ("2010s", "2010s"), ("2020", "2020"), ("2021", "2021"),
                   ("2022", "2022"), ("2023", "2023"), ("2024", "2024"),
-                  ("2025", "2025"), ("2026", "2026")]:
+                  ("2025", "2025")]:
     if key in er:
         cats.append(disp); vals.append(er[key]["median"] * 100)
 fig, ax = plt.subplots(figsize=(10, 5))
