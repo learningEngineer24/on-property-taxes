@@ -40,10 +40,24 @@ levels should not be cited:
 - The "2021–22 buyer" parcel cohort was heavily polluted by the 2021 refinance
   boom: parcels with 2021–22 documents whose assessed values imply much older
   purchases. v3's 2022-only cohort still shows -$347k, confirming contamination.
-The v1 SIGN FLIP shape across cohorts remains suggestive, but cite v3 numbers:
-- Paired 2023 (n=5,113): median assessed/(price*1.02^3) = 0.98; 22.2% assessed
-  BELOW purchase price (Prop 8 cuts working).
+The v1 SIGN FLIP shape across cohorts remains suggestive, but cite v4 numbers:
+- Paired 2023 (n=5,113): median assessed/expected = 1.00 with buyer-specific
+  Prop 13 trajectories (see CORRECTION 2 below); 22.2% assessed BELOW purchase
+  price (Prop 8 cuts working).
 - Clean cross-section: 2023 buyers' factored values vs true 2024–25 prices:
-  pooled +$52k (+4.4%), 95% CI [+$19k, +$73k]. Both sides true prices.
-- ZIP ranking: Berkeley/Oakland hills most over-assessed (94705 +25.5%,
-  94609 +25.4%, 94611 +13.2%); Tri-Valley still under-assessed.
+  pooled +$42k (+3.5%), 95% CI [+$7k, +$48k] (sampling noise only). Both sides
+  true prices.
+- ZIP ranking: Berkeley/Oakland hills most over-assessed (94705 +23.1%,
+  94609 +23.0%, 94611 +11.0%); Tri-Valley still under-assessed.
+
+## CORRECTION 2 (Oct 3, v4): buyer-specific Prop 13 trajectory factors
+v3 applied a uniform price*1.02^3 trajectory to all 2023 buyers. The county's
+rolls show the 2% inflation factor is NOT applied at the first lien date for
+everyone: 2023 transfers recorded Apr–Jun enrolled at x1.02 at the Jan-2024
+lien (~88%), while Jul–Dec transfers enrolled at x1.00 (~88–96%) — the
+assessment-roll close (~Jun 30) decides which base lien date applies.
+Correct trajectories to the Jan-2026 lien: H1-2023 buyers price*1.02^3,
+H2-2023 buyers (the majority) price*1.02^2. v3's uniform factor overstated
+expected AV ~2% for ~60% of buyers (paired median 0.98 -> 1.00; pooled gap
++$52k -> +$42k). See src/cohort_gaps_v4.py. Independently verified by a
+second pass over the rolls.

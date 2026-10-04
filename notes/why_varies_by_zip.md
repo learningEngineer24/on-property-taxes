@@ -3,9 +3,13 @@
 ## Rationale
 Prop 13's 2%-per-year trajectory rises no matter what the market does. So the
 over-assessment gap in a neighborhood is, to first order, mechanical:
-gap ≈ 6% (three years of factored growth) minus the neighborhood's actual price
-change since 2023. Where prices fell, the gap yawns open; where they kept
-climbing, 2023 buyers are still under-assessed. The economics behind the price
+gap ≈ factored growth (~4-5% for the typical buyer, given buyer-specific
+trajectory factors -- see methodology_gold_standard.md CORRECTION 2) minus the
+neighborhood's actual price change since 2023. Where prices fell, the gap yawns
+open; where they kept climbing, 2023 buyers are still under-assessed. Note the
+ranking correspondence is mechanical (both sides rearrange the same transfer
+medians), not independent confirmation -- the genuine empirical content is the
+price divergence itself, corroborated independently by ZHVI. The economics behind the price
 moves: the 2022–23 rate shock (30-year mortgages roughly doubling from ~3% to
 ~7%) destroyed purchasing power unevenly, and neighborhoods corrected
 unevenly in response.
@@ -23,7 +27,7 @@ unevenly in response.
 
 ## Examples (the lead pair)
 - **94705 (Berkeley hills)**: 2023 median $2.43M → **−15.5%** → 2023 buyers
-  over-assessed by **+25.5%** (+$523k median gap).
+  over-assessed by **+23.1%** (+$473k median gap, v4 corrected factors).
 - **94539 (Fremont)**: 2023 median $2.30M → **+9.8%** → 2023 buyers still
   *under*-assessed by 3.3%.
 - Same starting price tier (~$2.3–2.4M), opposite fates. The difference isn't
@@ -46,9 +50,10 @@ migration) — that part is informed interpretation, labeled as such.
 2. **The divergence explains the over-assessment map.** The ZIP ranking by
    price decline is the same ranking as the ZIP ranking by over-assessment
    gap: the five steepest price drops (94705, 94609, 94610, 94605, 94611) are
-   the five largest over-assessment gaps. Mechanically, gap ≈ 6% (three years
-   of Prop 13 factored growth) minus the neighborhood's actual price change —
-   so wherever prices fell, the gap opened; wherever they rose, it didn't.
+   the five largest over-assessment gaps. Mechanically, gap ≈ factored growth
+   (~4-5%) minus the neighborhood's actual price change — so wherever prices
+   fell, the gap opened; wherever they rose, it didn't. (The mirroring is
+   algebraic, not a second empirical discovery.)
 3. **It is not a price-level story.** Correlation between a ZIP's 2023 price
    level and its subsequent change is 0.12 (weak). Proof by example: 94705
    and 94539 both sat near $2.3–2.4M in 2023; one fell 15.5%, the other rose
