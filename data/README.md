@@ -23,3 +23,12 @@ Small reference files that *are* committed here:
   with integer normalization (parcel secondaries are zero-padded).
 - `fred_mortgage30us.csv` — FRED 30-year fixed mortgage rates, weekly
   1971–present (no API key needed via fredgraph.csv).
+
+One source is downloaded directly (123 MB, not committed):
+
+```bash
+curl -O "https://files.zillowstatic.com/research/public_csvs/zhvi/Zip_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv"
+# then: python3 ../src/zhvi_peaks.py
+```
+Zillow Home Value Index, monthly, ZIP-level, smoothed seasonally adjusted —
+used for the 2022 price-peak series (see `../src/zhvi_peaks.py`).
