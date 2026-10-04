@@ -15,6 +15,7 @@ from collections import defaultdict
 from datetime import date
 
 # ---------- transfer medians by (zip, type) ----------
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root
 seen = set()
 px = defaultdict(list)
 for line in open(BASE + "/data/transfers.jsonl"):
