@@ -1,0 +1,6 @@
+# Bulk data excluded from git (reproducible via src/)
+data/*.jsonl
+data/*.ckpt
+outputs/parcel_effective_rates.jsonl
+__pycache__/
+*.pyc
