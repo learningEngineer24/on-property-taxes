@@ -1,0 +1,350 @@
+{
+ "n_priced_transfers": 23689,
+ "n_2021_22_buyers": 40472,
+ "n_benchmark_sales": 7914,
+ "pooled_gap": -357306.0,
+ "pooled_gap_ci95": [
+  -383035.0,
+  -351291.0
+ ],
+ "by_zip": [
+  {
+   "zip": "94607",
+   "gap": 20000.0,
+   "n_buy": 167,
+   "n_sales": 44,
+   "med_assessed": 730000,
+   "med_sale": 710000.0
+  },
+  {
+   "zip": "94601",
+   "gap": -20369.0,
+   "n_buy": 689,
+   "n_sales": 172,
+   "med_assessed": 579631,
+   "med_sale": 600000.0
+  },
+  {
+   "zip": "94621",
+   "gap": -28000.0,
+   "n_buy": 667,
+   "n_sales": 169,
+   "med_assessed": 437000,
+   "med_sale": 465000.0
+  },
+  {
+   "zip": "94603",
+   "gap": -57233.0,
+   "n_buy": 880,
+   "n_sales": 182,
+   "med_assessed": 457767,
+   "med_sale": 515000.0
+  },
+  {
+   "zip": "94606",
+   "gap": -67000.0,
+   "n_buy": 359,
+   "n_sales": 82,
+   "med_assessed": 600000,
+   "med_sale": 667000.0
+  },
+  {
+   "zip": "94608",
+   "gap": -83000.0,
+   "n_buy": 440,
+   "n_sales": 93,
+   "med_assessed": 767000,
+   "med_sale": 850000.0
+  },
+  {
+   "zip": "94605",
+   "gap": -96929.0,
+   "n_buy": 1729,
+   "n_sales": 394,
+   "med_assessed": 608071,
+   "med_sale": 705000.0
+  },
+  {
+   "zip": "94619",
+   "gap": -125488.0,
+   "n_buy": 993,
+   "n_sales": 239,
+   "med_assessed": 799512,
+   "med_sale": 925000.0
+  },
+  {
+   "zip": "94580",
+   "gap": -150964.0,
+   "n_buy": 1042,
+   "n_sales": 166,
+   "med_assessed": 702036,
+   "med_sale": 853000.0
+  },
+  {
+   "zip": "94545",
+   "gap": -158617.0,
+   "n_buy": 804,
+   "n_sales": 137,
+   "med_assessed": 766383,
+   "med_sale": 925000.0
+  },
+  {
+   "zip": "94541",
+   "gap": -175789.0,
+   "n_buy": 1210,
+   "n_sales": 215,
+   "med_assessed": 674211,
+   "med_sale": 850000.0
+  },
+  {
+   "zip": "94544",
+   "gap": -179333.0,
+   "n_buy": 1454,
+   "n_sales": 265,
+   "med_assessed": 680667,
+   "med_sale": 860000.0
+  },
+  {
+   "zip": "94577",
+   "gap": -182250.0,
+   "n_buy": 1313,
+   "n_sales": 289,
+   "med_assessed": 692750,
+   "med_sale": 875000.0
+  },
+  {
+   "zip": "94578",
+   "gap": -185776.0,
+   "n_buy": 851,
+   "n_sales": 155,
+   "med_assessed": 627224,
+   "med_sale": 813000.0
+  },
+  {
+   "zip": "94579",
+   "gap": -188147.0,
+   "n_buy": 698,
+   "n_sales": 118,
+   "med_assessed": 683653,
+   "med_sale": 871800.0
+  },
+  {
+   "zip": "94609",
+   "gap": -191547.0,
+   "n_buy": 373,
+   "n_sales": 105,
+   "med_assessed": 908453,
+   "med_sale": 1100000.0
+  },
+  {
+   "zip": "94611",
+   "gap": -201096.0,
+   "n_buy": 1723,
+   "n_sales": 408,
+   "med_assessed": 1298904,
+   "med_sale": 1500000.0
+  },
+  {
+   "zip": "94602",
+   "gap": -255834.0,
+   "n_buy": 1090,
+   "n_sales": 269,
+   "med_assessed": 854166,
+   "med_sale": 1110000.0
+  },
+  {
+   "zip": "94551",
+   "gap": -257566.0,
+   "n_buy": 1300,
+   "n_sales": 297,
+   "med_assessed": 892434,
+   "med_sale": 1150000.0
+  },
+  {
+   "zip": "94708",
+   "gap": -269769.0,
+   "n_buy": 488,
+   "n_sales": 96,
+   "med_assessed": 1280231,
+   "med_sale": 1550000.0
+  },
+  {
+   "zip": "94610",
+   "gap": -282400.0,
+   "n_buy": 667,
+   "n_sales": 151,
+   "med_assessed": 1217600,
+   "med_sale": 1500000.0
+  },
+  {
+   "zip": "94546",
+   "gap": -299790.0,
+   "n_buy": 1631,
+   "n_sales": 253,
+   "med_assessed": 825210,
+   "med_sale": 1125000.0
+  },
+  {
+   "zip": "94702",
+   "gap": -303912.0,
+   "n_buy": 483,
+   "n_sales": 98,
+   "med_assessed": 896088,
+   "med_sale": 1200000.0
+  },
+  {
+   "zip": "94568",
+   "gap": -306502.0,
+   "n_buy": 1235,
+   "n_sales": 218,
+   "med_assessed": 1143498,
+   "med_sale": 1450000.0
+  },
+  {
+   "zip": "94502",
+   "gap": -326646.0,
+   "n_buy": 192,
+   "n_sales": 31,
+   "med_assessed": 1073354,
+   "med_sale": 1400000.0
+  },
+  {
+   "zip": "94550",
+   "gap": -327473.0,
+   "n_buy": 1951,
+   "n_sales": 374,
+   "med_assessed": 997527,
+   "med_sale": 1325000.0
+  },
+  {
+   "zip": "94542",
+   "gap": -343997.0,
+   "n_buy": 406,
+   "n_sales": 91,
+   "med_assessed": 926003,
+   "med_sale": 1270000.0
+  },
+  {
+   "zip": "94501",
+   "gap": -348396.0,
+   "n_buy": 1284,
+   "n_sales": 237,
+   "med_assessed": 951604,
+   "med_sale": 1300000.0
+  },
+  {
+   "zip": "94618",
+   "gap": -374850.0,
+   "n_buy": 622,
+   "n_sales": 127,
+   "med_assessed": 1450150,
+   "med_sale": 1825000.0
+  },
+  {
+   "zip": "94706",
+   "gap": -406236.0,
+   "n_buy": 520,
+   "n_sales": 95,
+   "med_assessed": 873764,
+   "med_sale": 1280000.0
+  },
+  {
+   "zip": "94703",
+   "gap": -440067.0,
+   "n_buy": 343,
+   "n_sales": 79,
+   "med_assessed": 859933,
+   "med_sale": 1300000.0
+  },
+  {
+   "zip": "94566",
+   "gap": -444720.0,
+   "n_buy": 1639,
+   "n_sales": 321,
+   "med_assessed": 1415280,
+   "med_sale": 1860000.0
+  },
+  {
+   "zip": "94588",
+   "gap": -494393.0,
+   "n_buy": 928,
+   "n_sales": 165,
+   "med_assessed": 1185607,
+   "med_sale": 1680000.0
+  },
+  {
+   "zip": "94560",
+   "gap": -530484.0,
+   "n_buy": 1320,
+   "n_sales": 277,
+   "med_assessed": 819516,
+   "med_sale": 1350000.0
+  },
+  {
+   "zip": "94538",
+   "gap": -544559.0,
+   "n_buy": 1387,
+   "n_sales": 273,
+   "med_assessed": 930441,
+   "med_sale": 1475000.0
+  },
+  {
+   "zip": "94705",
+   "gap": -591000.0,
+   "n_buy": 390,
+   "n_sales": 76,
+   "med_assessed": 1459000,
+   "med_sale": 2050000.0
+  },
+  {
+   "zip": "94552",
+   "gap": -622936.0,
+   "n_buy": 326,
+   "n_sales": 41,
+   "med_assessed": 1038064,
+   "med_sale": 1661000.0
+  },
+  {
+   "zip": "94587",
+   "gap": -641367.0,
+   "n_buy": 1660,
+   "n_sales": 306,
+   "med_assessed": 808633,
+   "med_sale": 1450000.0
+  },
+  {
+   "zip": "94536",
+   "gap": -670366.0,
+   "n_buy": 1784,
+   "n_sales": 316,
+   "med_assessed": 1029634,
+   "med_sale": 1700000.0
+  },
+  {
+   "zip": "94707",
+   "gap": -685007.0,
+   "n_buy": 514,
+   "n_sales": 83,
+   "med_assessed": 1114993,
+   "med_sale": 1800000.0
+  },
+  {
+   "zip": "94555",
+   "gap": -882870.0,
+   "n_buy": 768,
+   "n_sales": 115,
+   "med_assessed": 872130,
+   "med_sale": 1755000.0
+  },
+  {
+   "zip": "94539",
+   "gap": -1126642.0,
+   "n_buy": 1865,
+   "n_sales": 244,
+   "med_assessed": 1398358,
+   "med_sale": 2525000.0
+  }
+ ],
+ "repeat_sale_pairs": 450,
+ "pairs_lagging_trajectory": 55
+}

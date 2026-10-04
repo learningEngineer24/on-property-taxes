@@ -1,0 +1,118 @@
+{
+ "rows": 489628,
+ "expected": 489636,
+ "dup_OBJECTID": 0,
+ "dup_APN": 19238,
+ "missing": {
+  "SitusAddress": 443,
+  "SitusCity": 443,
+  "SitusZip": 443,
+  "Land": 443,
+  "Imps": 443,
+  "TotalNetValue": 443,
+  "LatestDocumentDate": 443,
+  "UseCode": 443,
+  "TRAPrimary": 443,
+  "TRASecondary": 443,
+  "HOEX": 443,
+  "OTEX": 443,
+  "CENTROID_X": 5,
+  "CENTROID_Y": 5
+ },
+ "null_TotalNetValue": 443,
+ "zero_TotalNetValue": 29202,
+ "value_p10": 150441,
+ "value_median": 605000,
+ "value_p90": 1508580,
+ "implausible_or_unparseable_dates": 5878,
+ "doc_year_min": 1899,
+ "doc_year_max": 2026,
+ "top_cities": [
+  [
+   "OAKLAND",
+   112974
+  ],
+  [
+   "FREMONT",
+   84761
+  ],
+  [
+   "HAYWARD",
+   39707
+  ],
+  [
+   "LIVERMORE",
+   33189
+  ],
+  [
+   "BERKELEY",
+   28945
+  ],
+  [
+   "PLEASANTON",
+   25230
+  ],
+  [
+   "SAN LEANDRO",
+   25131
+  ],
+  [
+   "DUBLIN",
+   24141
+  ],
+  [
+   "CASTRO VALLEY",
+   22117
+  ],
+  [
+   "ALAMEDA",
+   22103
+  ]
+ ],
+ "top_usecodes": [
+  [
+   "1100",
+   265492
+  ],
+  [
+   "7300",
+   54567
+  ],
+  [
+   "1800",
+   25818
+  ],
+  [
+   "7305",
+   17493
+  ],
+  [
+   "1500",
+   15516
+  ],
+  [
+   "0300",
+   11040
+  ],
+  [
+   "2200",
+   8525
+  ],
+  [
+   "7700",
+   6285
+  ],
+  [
+   "1000",
+   5148
+  ],
+  [
+   "2400",
+   4291
+  ]
+ ],
+ "n_distinct_usecodes": 175,
+ "oakland_rows": 112974,
+ "residential_rows": 307197,
+ "homeowner_exemption_rows": 239910
+}
